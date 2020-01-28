@@ -1,0 +1,41 @@
+<% if @user.errors.any? %>
+    <div>
+        <ul>
+            <% @user.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+            <% end %>
+        </ul>
+    </div>  
+<% end %>
+
+<%= form_for @user do |f| %>
+  Username: <%= f.text_field :username %><br>
+  Email: <%= f.text_field :email %><br>
+  Password: <%= f.text_field :password %><br>
+  
+  <%= f.submit %>
+<% end %>
+ 
+
+  <%# COMMENTING ERB SUCKS
+   <%= form_tag("/users", method: "POST") do %>
+    <%# <%= label_tag('user[email]', 'Email') %> 
+    <%# <%= text_field_tag('user[email]') %> 
+<%#  %>
+    <%# <%= label_tag('user[username]', 'Username') %> 
+    <%# <%= text_field_tag('user[username]') %> 
+
+    <%# <%= label_tag('user[password]', 'Password') %> 
+    <%# <%= text_field_tag('user[password]') %> 
+<%#  %>
+    <%# <%= submit_tag("Submit") %> 
+    <%# <% end %>
+ 
+ 
+ <%# <form action="/users" accept-charset="UTF-8" method="POST">
+  Email: <input type="text" name="user[email]"><br>
+  Username: <input type="text" name="user[username]"><br>
+  Password: <input type="text" name="user[password]"><br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %> <%#%">
+  <input type="submit" value="Submit">
+</form> %>
